@@ -1,0 +1,2 @@
+# uv/setuptools 可编辑安装生成的元数据不进入版本库。
+*.egg-info/
