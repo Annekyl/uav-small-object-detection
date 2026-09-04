@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Python environments
+.venv/
+venv/
+env/
+conda-env/
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Datasets and generated annotations
+data/
+datasets/
+数据集/
+
+# Training outputs and experiment trackers
+runs/
+outputs/
+results/
+wandb/
+mlruns/
+日志/
+
+# Model weights and deployment artifacts
+weights/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.plan
+*.trt
+*.wts
+*.cache
+
+# TensorRT calibration and profiling outputs
+calibration_cache/
+*.timing
+*.profile
+nsys-rep/
+*.nsys-rep
+*.qdrep
+
+# CMake and C/C++ build outputs
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.obj
+*.o
+*.lib
+*.dll
+*.so
+*.exe
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.log
+
+# Keep small templates or instructions inside otherwise ignored directories
+!.gitkeep
