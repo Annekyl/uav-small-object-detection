@@ -1,0 +1,11 @@
+pyproject.toml
+src/uav_detection/__init__.py
+src/uav_detection/data/__init__.py
+src/uav_detection/data/visdrone.py
+src/uav_small_object_detection.egg-info/PKG-INFO
+src/uav_small_object_detection.egg-info/SOURCES.txt
+src/uav_small_object_detection.egg-info/dependency_links.txt
+src/uav_small_object_detection.egg-info/entry_points.txt
+src/uav_small_object_detection.egg-info/requires.txt
+src/uav_small_object_detection.egg-info/top_level.txt
+tests/test_visdrone.py

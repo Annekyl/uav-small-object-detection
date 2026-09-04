@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uav-small-object-detection"
+version = "0.1.0"
+description = "面向无人机航拍场景的轻量化小目标检测毕业设计"
+requires-python = ">=3.10,<3.13"
+dependencies = ["Pillow>=10.0", "PyYAML>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+train = ["ultralytics>=8.3,<9"]
+
+[project.scripts]
+visdrone-convert = "uav_detection.data.visdrone:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

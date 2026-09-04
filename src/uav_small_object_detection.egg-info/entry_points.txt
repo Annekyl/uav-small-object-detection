@@ -1,0 +1,2 @@
+[console_scripts]
+visdrone-convert = uav_detection.data.visdrone:main
