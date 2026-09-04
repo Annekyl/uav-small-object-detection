@@ -1,5 +1,5 @@
 # YOLOv8-P2：在标准 P3/P4/P5 检测基础上增加 stride=4 的 P2 检测层。
-# 通过 scale: n 固定为 YOLOv8n 的深度和宽度，供 A1 单变量消融实验使用。
+# 文件名中的 n 与 scale: n 共同固定 YOLOv8n 缩放，供 A1 单变量消融实验使用。
 nc: 10
 scale: n
 scales:

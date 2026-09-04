@@ -1,5 +1,5 @@
 # 实验 A1：YOLOv8n + P2 小目标检测头
-model: configs/models/yolov8-p2.yaml
+model: configs/models/yolov8n-p2.yaml
 pretrained_weights: yolov8n.pt
 data: configs/dataset_configs/visdrone.yaml
 

@@ -68,7 +68,7 @@ def test_a1_changes_only_model_initialization_and_output_identity() -> None:
 
 
 def test_p2_model_has_four_detection_scales() -> None:
-    model = load_yaml(PROJECT_ROOT / "configs/models/yolov8-p2.yaml")
+    model = load_yaml(PROJECT_ROOT / "configs/models/yolov8n-p2.yaml")
     detect = model["head"][-1]
 
     assert model["nc"] == 10
