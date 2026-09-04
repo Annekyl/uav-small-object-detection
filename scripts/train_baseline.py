@@ -169,7 +169,11 @@ def main() -> None:
         raise RuntimeError("未安装训练依赖，请先执行 uv sync --extra train") from exc
 
     model_path = config.pop("model")
-    YOLO(model_path).train(**config)
+    pretrained_weights = config.pop("pretrained_weights", None)
+    model = YOLO(model_path)
+    if pretrained_weights:
+        model.load(pretrained_weights)
+    model.train(**config)
 
 
 if __name__ == "__main__":

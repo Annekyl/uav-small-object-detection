@@ -3,7 +3,13 @@ from pathlib import Path
 import pytest
 import yaml
 
-from scripts.train_baseline import build_runtime_dataset_yaml, parse_override, validate_dataset
+from scripts.train_baseline import (
+    PROJECT_ROOT,
+    build_runtime_dataset_yaml,
+    load_yaml,
+    parse_override,
+    validate_dataset,
+)
 
 
 def make_dataset(root: Path) -> None:
@@ -47,3 +53,25 @@ def test_runtime_dataset_uses_absolute_root(tmp_path: Path) -> None:
 )
 def test_parse_override(text: str, expected: tuple[str, object]) -> None:
     assert parse_override(text) == expected
+
+
+def test_a1_changes_only_model_initialization_and_output_identity() -> None:
+    baseline = load_yaml(PROJECT_ROOT / "configs/train/yolov8n_baseline_640.yaml")
+    p2 = load_yaml(PROJECT_ROOT / "configs/train/yolov8n_p2_640.yaml")
+
+    allowed_differences = {"model", "pretrained_weights", "project", "name"}
+    shared_keys = (set(baseline) | set(p2)) - allowed_differences
+    assert {key: baseline.get(key) for key in shared_keys} == {
+        key: p2.get(key) for key in shared_keys
+    }
+    assert p2["pretrained_weights"] == "yolov8n.pt"
+
+
+def test_p2_model_has_four_detection_scales() -> None:
+    model = load_yaml(PROJECT_ROOT / "configs/models/yolov8-p2.yaml")
+    detect = model["head"][-1]
+
+    assert model["nc"] == 10
+    assert model["scale"] == "n"
+    assert detect[0] == [18, 21, 24, 27]
+    assert detect[2] == "Detect"
